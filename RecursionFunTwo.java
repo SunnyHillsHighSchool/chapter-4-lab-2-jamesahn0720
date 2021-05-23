@@ -8,14 +8,12 @@ public class RecursionFunTwo
 {
 	public static int countChickens(String word)
 	{
-	  if (word.isEmpty()) {
-            return 0;
-        } else {
-            int count = countChickens(word.substring(1));
-            if (word.startsWith("chicken")) {
-                ++count;
-            }
-            return count;
-        }
+	int index = word.indexOf("chicken");
+    if(index==-1)
+    {
+      return 0;
+    }
+    word = word.substring(0,index)+word.substring(index+7);
+		return 1 + countChickens(word);
 	}
 }
